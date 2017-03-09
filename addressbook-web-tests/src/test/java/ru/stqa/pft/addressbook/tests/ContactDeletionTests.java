@@ -12,7 +12,7 @@ public class ContactDeletionTests extends TestBase {
   public void testContactDeletion() {
     app.getNavigationHelper().gotoHomePage();
     if (! app.getContactHelper().isThereAContact()){
-      app.getContactHelper().createContact(new ContactData("Yulia", "LastName", "Test@gmail.com", "[none]"), true);
+      app.getContactHelper().createContact(new ContactData("Yulia", "LastName", "Test@gmail.com", "[none]"));
       app.getNavigationHelper().returnToHomePage();
     }
     app.getContactHelper().selectContact();
