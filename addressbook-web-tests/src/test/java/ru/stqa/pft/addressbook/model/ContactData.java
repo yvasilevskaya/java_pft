@@ -1,26 +1,61 @@
 package ru.stqa.pft.addressbook.model;
 
 public class ContactData {
-  public void setId(int id) {
+
+  private int id = Integer.MAX_VALUE;
+  private String name;
+  private String lastname;
+  private String group;
+  private String email;
+
+
+  public String getName() { return name; }
+
+  public String getLastname() {
+    return lastname;
+  }
+
+  public String getEmail() {
+    return email;
+  }
+
+  public String getGroup() { return group; }
+
+  public int getId() { return id; }
+
+
+  public ContactData withId(int id) {
     this.id = id;
+    return this;
   }
 
-  private int id;
-  private final String name;
-  private final String lastname;
-  private final String group;
-  private final String email;
-
-  public ContactData(String name, String lastname, String email, String group) {
-    this.id = Integer.MAX_VALUE;
+  public ContactData withName(String name) {
     this.name = name;
-    this.lastname = lastname;
-    this.email = email;
-    this.group = group;
+    return this;
   }
 
-  public String getName() {
-    return name;
+  public ContactData withLastname(String lastname) {
+    this.lastname = lastname;
+    return this;
+  }
+
+  public ContactData withGroup(String group) {
+    this.group = group;
+    return this;
+  }
+
+  public ContactData withEmail(String email) {
+    this.email = email;
+    return this;
+  }
+
+
+  @Override
+  public String toString() {
+    return "ContactData{" +
+            "name='" + name + '\'' +
+            ", lastname='" + lastname + '\'' +
+            '}';
   }
 
   @Override
@@ -42,25 +77,4 @@ public class ContactData {
     result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
     return result;
   }
-
-  public String getLastname() {
-    return lastname;
-  }
-
-  public String getEmail() {
-    return email;
-  }
-
-  public String getGroup() { return group; }
-
-  public int getId() { return id; }
-
-  @Override
-  public String toString() {
-    return "ContactData{" +
-            "name='" + name + '\'' +
-            ", lastname='" + lastname + '\'' +
-            '}';
-  }
-
 }
