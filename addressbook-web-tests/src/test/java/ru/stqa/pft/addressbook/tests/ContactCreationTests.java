@@ -1,6 +1,5 @@
 package ru.stqa.pft.addressbook.tests;
 
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
@@ -24,7 +23,7 @@ public class ContactCreationTests extends TestBase {
     app.goTo().HomePage();
     Contacts before = app.contact().allContacts();
     ContactData contact = new ContactData()
-            .withName("Yulia").withLastname("LastName").withEmail("Test@gmail.com").withGroup("Group1");
+            .withName("Yulia").withLastName("LastName").withEmail("Test@gmail.com").withGroup("Group1");
     app.contact().create(contact);
     app.goTo().HomePage();
     Contacts after = app.contact().allContacts();

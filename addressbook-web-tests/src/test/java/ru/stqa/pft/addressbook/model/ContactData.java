@@ -11,7 +11,7 @@ public class ContactData {
 
   public String getName() { return name; }
 
-  public String getLastname() {
+  public String getLastName() {
     return lastname;
   }
 
@@ -34,7 +34,7 @@ public class ContactData {
     return this;
   }
 
-  public ContactData withLastname(String lastname) {
+  public ContactData withLastName(String lastname) {
     this.lastname = lastname;
     return this;
   }
