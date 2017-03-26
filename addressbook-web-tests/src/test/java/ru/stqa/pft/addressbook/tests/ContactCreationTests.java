@@ -21,13 +21,15 @@ public class ContactCreationTests extends TestBase {
   @Test
   public void testContactCreation() {
     app.goTo().HomePage();
-    Contacts before = app.contact().allContacts();
+    Contacts before = app.contact().all();
     ContactData contact = new ContactData()
-            .withName("Yulia").withLastName("LastName").withEmail("Test@gmail.com").withGroup("Group1");
+            .withName("Yulia").withLastName("LastName").withGroup("[none]").withAddress("Minsk")
+            .withHomePhone("123 123").withMobilePhone("+37529").withWorkPhone("11 22")
+            .withEmail("Test@gmail.com").withEmail2("Test2@gmail.com").withEmail3("Test3@gmail.com");
     app.contact().create(contact);
     app.goTo().HomePage();
     assertThat(app.contact().сount(), equalTo(before.size() + 1));
-    Contacts after = app.contact().allContacts();
+    Contacts after = app.contact().all();
 
     assertThat(after,equalTo(
             before.withAdded(contact.withId(after.stream().mapToInt((g) ->  g.getId()).max().getAsInt()))));
