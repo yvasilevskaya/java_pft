@@ -7,10 +7,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
-
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by Yulia on 2/23/2017.
@@ -140,6 +137,23 @@ public class ContactHelper extends HelperBase {
     cells.get(7).findElement(By.tagName("a")).click();
 
   }
+
+  public ContactData infoFromDetailsForm(ContactData contact) {
+    checkContactDetailsById(contact.getId());
+    String allInfo = wd.findElement(By.cssSelector("div[id=content]")).getText();
+    wd.navigate().back();
+    return new ContactData().withId(contact.getId()).withAllInfo(allInfo);
+  }
+
+  public void checkContactDetailsById(int id) {
+    WebElement checkbox = wd.findElement(By.cssSelector("input[value='" + id + "']"));
+    WebElement row = checkbox.findElement(By.xpath("./../.."));
+    List<WebElement> cells = row.findElements(By.tagName("td"));
+    cells.get(6).findElement(By.tagName("a")).click();
+  }
+
+
+
 }
 
 
