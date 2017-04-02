@@ -1,0 +1,38 @@
+<list>
+  <contact>
+    <name>Yulia 0</name>
+    <lastname>LastName0</lastname>
+    <address>Minsk0</address>
+    <group>[none]</group>
+    <homePhone>123450</homePhone>
+    <mobilePhone>11111110</mobilePhone>
+    <workPhone>11 220</workPhone>
+    <email>Test@gmail.com0</email>
+    <email2>Test2@gmail.com0</email2>
+    <email3>Test3@gmail.com0</email3>
+  </contact>
+  <contact>
+    <name>Yulia 1</name>
+    <lastname>LastName1</lastname>
+    <address>Minsk1</address>
+    <group>[none]</group>
+    <homePhone>123451</homePhone>
+    <mobilePhone>11111111</mobilePhone>
+    <workPhone>11 221</workPhone>
+    <email>Test@gmail.com1</email>
+    <email2>Test2@gmail.com1</email2>
+    <email3>Test3@gmail.com1</email3>
+  </contact>
+  <contact>
+    <name>Yulia 2</name>
+    <lastname>LastName2</lastname>
+    <address>Minsk2</address>
+    <group>[none]</group>
+    <homePhone>123452</homePhone>
+    <mobilePhone>11111112</mobilePhone>
+    <workPhone>11 222</workPhone>
+    <email>Test@gmail.com2</email>
+    <email2>Test2@gmail.com2</email2>
+    <email3>Test3@gmail.com2</email3>
+  </contact>
+</list>
