@@ -15,7 +15,7 @@ import java.util.Set;
  */
 public class GroupHelper extends HelperBase {
 
-  public int сount() {
+  public int count() {
     return wd.findElements(By.name("selected[]")).size();
   }
 

@@ -12,10 +12,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -63,7 +61,7 @@ public class GroupCreationTests extends TestBase {
     app.goTo().GroupPage();
     Groups before = app.group().all();
     app.group().create(group);
-    assertThat(app.group().сount(), equalTo(before.size() + 1));
+    assertThat(app.group().count(), equalTo(before.size() + 1));
     Groups after = app.group().all();
 
     assertThat(after,equalTo(
@@ -76,7 +74,7 @@ public class GroupCreationTests extends TestBase {
     Groups before = app.group().all();
     GroupData group = new GroupData().withName("Group1'");
     app.group().create(group);
-    assertThat(app.group().сount(), equalTo(before.size()));
+    assertThat(app.group().count(), equalTo(before.size()));
     Groups after = app.group().all();
     assertThat(after,equalTo(before));
   }

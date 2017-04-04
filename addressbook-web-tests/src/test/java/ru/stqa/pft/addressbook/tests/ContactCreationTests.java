@@ -74,7 +74,7 @@ public class ContactCreationTests extends TestBase {
 //            .withPhoto(photo);
     app.contact().create(contact);
     app.goTo().HomePage();
-    assertThat(app.contact().сount(), equalTo(before.size() + 1));
+    assertThat(app.contact().count(), equalTo(before.size() + 1));
     Contacts after = app.contact().all();
 
     assertThat(after,equalTo(
