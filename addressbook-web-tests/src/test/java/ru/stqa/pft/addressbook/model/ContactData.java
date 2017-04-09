@@ -55,6 +55,7 @@ public class ContactData {
   @Type(type = "text")
   private String email3;
   @Expose
+  @Transient
   @Column(name = "photo")
   @Type(type = "text")
   private String photo;
