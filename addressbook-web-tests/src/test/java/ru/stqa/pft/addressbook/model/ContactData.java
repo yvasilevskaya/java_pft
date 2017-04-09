@@ -3,38 +3,68 @@ package ru.stqa.pft.addressbook.model;
 import com.google.gson.annotations.Expose;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
+import org.hibernate.annotations.Type;
 
+import javax.persistence.*;
 import java.io.File;
 
 @XStreamAlias("contact")
+@Entity
+@Table(name = "addressbook")
 public class ContactData {
   @XStreamOmitField
+  @Id
+  @Column(name = "id")
   private int id = Integer.MAX_VALUE;
   @Expose
+  @Column(name = "firstname")
   private String name;
   @Expose
+  @Column(name = "lastname")
   private String lastname;
   @Expose
+  @Column(name = "address")
+  @Type(type = "text")
   private String address;
   @Expose
+  @Transient
+  //@Column(name = "")
   private String group;
   @Expose
+  @Column(name = "home")
+  @Type(type = "text")
   private String homePhone;
   @Expose
+  @Column(name = "mobile")
+  @Type(type = "text")
   private String mobilePhone;
   @Expose
+  @Column(name = "work")
+  @Type(type = "text")
   private String workPhone;
   @Expose
+  @Column(name = "email")
+  @Type(type = "text")
   private String email;
   @Expose
+  @Column(name = "email2")
+  @Type(type = "text")
   private String email2;
   @Expose
+  @Column(name = "email3")
+  @Type(type = "text")
   private String email3;
   @Expose
+  @Column(name = "photo")
+  @Type(type = "text")
+  private String photo;
+  @Expose
+  @Transient
   private String allPhones;
+  @Transient
   private String allEmails;
+  @Transient
   private String allInfo;
-  private File photo;
 
 
   public String getName() {
@@ -93,7 +123,7 @@ public class ContactData {
     return allInfo;
   }
 
-  public File getPhoto() { return photo; }
+  public File getPhoto() {return new File(photo);}
 
 
   public ContactData withId(int id) {
@@ -166,18 +196,10 @@ public class ContactData {
   }
 
   public ContactData withPhoto(File photo) {
-    this.photo = photo;
+    this.photo = photo.getPath();
     return this;
   }
 
-
-  @Override
-  public String toString() {
-    return "ContactData{" +
-            "name='" + name + '\'' +
-            ", lastname='" + lastname + '\'' +
-            '}';
-  }
 
   @Override
   public boolean equals(Object o) {
@@ -198,5 +220,15 @@ public class ContactData {
     result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
     return result;
   }
+
+  @Override
+  public String toString() {
+    return "ContactData{" +
+            "id=" + id +
+            ", name='" + name + '\'' +
+            ", lastname='" + lastname + '\'' +
+            '}';
+  }
+
 
 }
