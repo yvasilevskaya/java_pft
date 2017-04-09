@@ -7,6 +7,8 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.io.File;
+import java.util.Set;
+import java.util.stream.Collector;
 
 @XStreamAlias("contact")
 @Entity
@@ -230,6 +232,4 @@ public class ContactData {
             ", lastname='" + lastname + '\'' +
             '}';
   }
-
-
 }
