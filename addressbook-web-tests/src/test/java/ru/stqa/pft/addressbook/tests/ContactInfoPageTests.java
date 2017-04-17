@@ -20,7 +20,7 @@ public class ContactInfoPageTests extends TestBase {
     app.goTo().HomePage();
     if (app.contact().all().size() == 0) {
       app.contact().create(new ContactData()
-              .withName("Yulia").withLastName("LastName").withGroup("[none]").withAddress("Minsk")
+              .withName("Yulia").withLastName("LastName").withAddress("Minsk")
               .withHomePhone("123 123").withMobilePhone("+37529").withWorkPhone("11 22")
               .withEmail("Test@gmail.com").withEmail2("Test2@gmail.com").withEmail3("Test3@gmail.com"));
       app.goTo().returnToHomePage();

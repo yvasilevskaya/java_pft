@@ -57,8 +57,7 @@ public class ContactDataGeneration {
     List<ContactData> contacts = new ArrayList<ContactData>();
     for (int i = 0; i < count; i++) {
       contacts.add(new ContactData()
-              .withName(String.format("Yulia %s", i)).withLastName(String.format("LastName%s", i))
-              .withGroup(String.format("[none]", i)).withAddress(String.format("Minsk%s", i))
+              .withName(String.format("Yulia %s", i)).withLastName(String.format("LastName%s", i)).withAddress(String.format("Minsk%s", i))
               .withHomePhone(String.format("12345%s", i)).withMobilePhone(String.format("1111111%s", i))
               .withWorkPhone(String.format("11 22%s", i)).withEmail(String.format("Test@gmail.com%s", i))
               .withEmail2(String.format("Test2@gmail.com%s", i)).withEmail3(String.format("Test3@gmail.com%s", i)));
@@ -87,8 +86,7 @@ public class ContactDataGeneration {
     System.out.println(new File(".").getAbsolutePath());
     Writer writer = new FileWriter(file);
     for (ContactData contact : contacts) {
-      writer.write(String.format("%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;\n", contact.getName(), contact.getLastName(),
-              contact.getGroup(), contact.getAddress(),
+      writer.write(String.format("%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;\n", contact.getName(), contact.getLastName(), contact.getAddress(),
               contact.getHomePhone(),contact.getMobilePhone(),contact.getWorkPhone(),
               contact.getEmail(), contact.getEmail2(),contact.getEmail3()));
     }
