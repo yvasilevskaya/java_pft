@@ -35,7 +35,7 @@ public class ContactHelper extends HelperBase {
 //    attach(By.name("photo"), contactData.getPhoto());
 
     if (creation) {
-      new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+      new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroups().iterator().next().getName());
     } else {
       Assert.assertFalse(isElementPresent(By.name("new_group")));
     }
@@ -45,13 +45,29 @@ public class ContactHelper extends HelperBase {
     return wd.findElements(By.name("selected[]")).size();
   }
 
+  public void returnToContactPage() {click(By.linkText("group page"));}
+
   public void selectContactById(int id) {
-    wd.findElement(By.cssSelector("input[value = '" + id + "']")).click();
+    wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
   }
+
+  public void addContactToGroup(int id) {
+    //wd.findElement(By.cssSelector("select[name='to_group']>option[value='" + id + "']")).click();
+    wd.findElement(By.xpath("//select[@name='group']//option[@value='" + "" + "']")).click();
+    click(By.cssSelector("input[name='add']"));
+  }
+
+  public void removeContactFromGroup(int id) {
+    //wd.findElement(By.cssSelector("select[name='group']>option[value='" + id + "']")).click();
+    wd.findElement(By.xpath("//select[@name='group']//option[@value='" + id + "']")).click();
+  }
+
+  public void addContactToGroup() {click(By.name("add"));}
 
   public void delete() {
     click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
   }
+
 
   public void closeDeleteConfirmationForm() {
     wd.switchTo().alert().accept();
@@ -68,6 +84,8 @@ public class ContactHelper extends HelperBase {
   public void initContactCreation() {
     click(By.linkText("add new"));
   }
+
+
 
   public void create(ContactData contact) {
     initContactCreation();
